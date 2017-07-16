@@ -31,10 +31,10 @@ Icon?
 Thumbs.db
 
 # Node Files #
-/node_modules/
-/bower_components/
-npm-debug.log
-/npm-debug.log.*
+/front/node_modules/
+/front/bower_components/
+/front/npm-debug.log
+/front/npm-debug.log.*
 
 # Coverage #
 /coverage/
