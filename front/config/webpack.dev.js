@@ -6,6 +6,7 @@ const helpers = require('./helpers');
 const webpackMerge = require('webpack-merge'); // used to merge webpack configs
 // const webpackMergeDll = webpackMerge.strategy({plugins: 'replace'});
 const commonConfig = require('./webpack.common.js'); // the settings that are common to prod and dev
+const environmentConfig = require('./env.dev.json');
 
 /**
  * Webpack Plugins
@@ -26,6 +27,7 @@ const METADATA = webpackMerge(commonConfig({env: ENV}).metadata, {
   host: HOST,
   port: PORT,
   ENV: ENV,
+  ENV_CONFIG: environmentConfig,
   HMR: HMR
 });
 
@@ -134,6 +136,7 @@ module.exports = function (options) {
        */
       new DefinePlugin({
         'ENV': JSON.stringify(METADATA.ENV),
+        'ENV_CONFIG': JSON.stringify(METADATA.ENV_CONFIG),
         'HMR': METADATA.HMR,
         'process.env': {
           'ENV': JSON.stringify(METADATA.ENV),

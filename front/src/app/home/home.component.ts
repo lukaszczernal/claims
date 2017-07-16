@@ -1,57 +1,28 @@
-import {
-  Component,
-  OnInit
-} from '@angular/core';
-
-import { AppState } from '../app.service';
-import { Title } from './title';
-import { XLargeDirective } from './x-large';
+import { Component } from '@angular/core';
+import { NgForm } from "@angular/forms";
+import { Http } from "@angular/http";
+import { ClaimService } from "../shared/claim.service";
 
 @Component({
-  /**
-   * The selector is what angular internally uses
-   * for `document.querySelectorAll(selector)` in our index.html
-   * where, in this case, selector is the string 'home'.
-   */
-  selector: 'home',  // <home></home>
-  /**
-   * We need to tell Angular's Dependency Injection which providers are in our app.
-   */
-  providers: [
-    Title
-  ],
-  /**
-   * Our list of styles in our component. We may add more to compose many styles together.
-   */
   styleUrls: [ './home.component.css' ],
-  /**
-   * Every Angular template is first compiled by the browser before Angular runs it's compiler.
-   */
   templateUrl: './home.component.html'
 })
-export class HomeComponent implements OnInit {
-  /**
-   * Set our default values
-   */
-  public localState = { value: '' };
-  /**
-   * TypeScript public modifiers
-   */
-  constructor(
-    public appState: AppState,
-    public title: Title
-  ) {}
+export class HomeComponent {
 
-  public ngOnInit() {
-    console.log('hello `Home` component');
-    /**
-     * this.title.getData().subscribe(data => this.data = data);
-     */
-  }
+    constructor(private claim: ClaimService) {}
 
-  public submitState(value: string) {
-    console.log('submitState', value);
-    this.appState.set('value', value);
-    this.localState.value = '';
-  }
+    onSubmit(form: NgForm) {
+        if (form.valid) {
+
+            this.claim.add(form.value)
+            .subscribe(
+                (() => console.log('submited', form)),
+                (err => console.log('err', err)) // TODO implement toastr
+            )
+
+            } else {
+            // TODO show erros
+        }
+    }
+
 }

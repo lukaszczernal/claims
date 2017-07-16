@@ -1,0 +1,20 @@
+<nav>
+    <a [routerLink]=" ['./form'] "
+        routerLinkActive="active"
+        [routerLinkActiveOptions]= "{exact: true}">
+        Claim Form
+    </a>
+    <a [routerLink]=" ['./manager'] "
+        routerLinkActive="active"
+        [routerLinkActiveOptions]= "{exact: true}">
+        Claims Manager
+    </a>
+</nav>
+
+<main>
+    <router-outlet></router-outlet>
+</main>
+
+<footer>
+    <h4>Insurance Claims Dashboard</h4>
+</footer>

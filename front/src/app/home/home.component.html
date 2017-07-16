@@ -1,37 +1,29 @@
-<div>
-  <h1 x-large class="sample-content">Your Content Here</h1>
+<form #form="ngForm" (ngSubmit)="onSubmit(form)">
 
-  <hr>
+    <label for="name">Name</label>
+    <input name="name" type="text" [ngModel]="name">
 
-  <div>
-    For hot module reloading run
-    <pre>npm run start:hmr</pre>
-  </div>
+    <label for="email">E-mail</label>
+    <input name="email" type="text" [ngModel]="email">
 
-  <hr>
+    <label for="policyId">Policy ID</label>
+    <input name="policyId" type="text" [ngModel]="policyId">
 
-  <div>
-    <h4>Local State</h4>
+    <label for="type">Claim Type</label>
+    <select name="type" [ngModel]="type">
+        <option value="1">Lost Baggage</option>
+        <option value="2">Theft</option>
+        <option value="3">Missed Flight</option>
+        <option value="4">Illness</option>
+        <option value="5">Accident</option>
+    </select>
 
-    <form (ngSubmit)="submitState(localState.value)" autocomplete="off">
+    <label for="amount">Amount</label>
+    <input name="amount" type="text" [ngModel]="amount">
 
-      <input
-        [value]="localState.value"
-        (input)="localState.value = $event.target.value"
-        placeholder="Submit Local State to App State"
-        autofocus>
+    <label for="dateOccurred">Date Occurred</label>
+    <input name="dateOccurred" type="date" [ngModel]="dateOccurred">
 
-      <button>Submit Value</button>
-    </form>
-    <!--
-        <input type="text" [value]="localState.value" (input)="localState.value = $event.target.value" autofocus>
-        Rather than wiring up two-way data-binding ourselves with [value] and (input)
-        we can use Angular's [(ngModel)] syntax
-        <input type="text" name="textInput" [(ngModel)]="localState.value" autofocus>
-      -->
+    <button type="submit">Submit</button>
 
-    <pre>this.localState = {{ localState | json }}</pre>
-
-  </div>
-
-</div>
+</form>

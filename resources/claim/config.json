@@ -1,0 +1,61 @@
+{
+	"type": "Collection",
+	"properties": {
+		"name": {
+			"name": "name",
+			"type": "string",
+			"typeLabel": "string",
+			"required": true,
+			"id": "name",
+			"order": 0
+		},
+		"email": {
+			"name": "email",
+			"type": "string",
+			"typeLabel": "string",
+			"required": true,
+			"id": "email",
+			"order": 1
+		},
+		"policyId": {
+			"name": "policyId",
+			"type": "number",
+			"typeLabel": "number",
+			"required": true,
+			"id": "policyId",
+			"order": 2
+		},
+		"type": {
+			"name": "type",
+			"type": "number",
+			"typeLabel": "number",
+			"required": true,
+			"id": "type",
+			"order": 3
+		},
+		"amount": {
+			"name": "amount",
+			"type": "number",
+			"typeLabel": "number",
+			"required": true,
+			"id": "amount",
+			"order": 4
+		},
+		"dateOccurred": {
+			"name": "dateOccurred",
+			"type": "number",
+			"typeLabel": "number",
+			"required": true,
+			"id": "dateOccurred",
+			"order": 5
+		},
+		"status": {
+			"name": "status",
+			"type": "number",
+			"typeLabel": "number",
+			"required": false,
+			"id": "status",
+			"order": 6
+		}
+	}
+}
