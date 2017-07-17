@@ -12,6 +12,8 @@ npm install deployd -g
 
 3. [Install MongoDB](https://docs.mongodb.com/manual/installation/)
 
+[hint: 'mongod' command needs to be in your $PATH in order enable Deployd start MongoDB. I recommend using 'brew install mongodb' for linux and macs]
+
 4. Enter 'front' folder
 
 5. install all NPM dependencies
