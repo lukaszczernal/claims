@@ -3,6 +3,10 @@ html, body{
   font-family: Arial, Helvetica, sans-serif
 }
 
+.app__container {
+  padding: 1rem 0rem;
+}
+
 .app__nav {
   margin-bottom: 2rem;
 }

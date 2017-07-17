@@ -1,29 +1,44 @@
 <form #form="ngForm" (ngSubmit)="onSubmit(form)">
 
-    <label for="name">Name</label>
-    <input name="name" type="text" [ngModel]="name">
 
-    <label for="email">E-mail</label>
-    <input name="email" type="text" [ngModel]="email">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input class="form-control" name="name" type="text" [ngModel]="name">
+    </div>
 
-    <label for="policyId">Policy ID</label>
-    <input name="policyId" type="text" [ngModel]="policyId">
+    <div class="form-group">
+        <label for="email">E-mail</label>
+        <input class="form-control" name="email" type="text" [ngModel]="email">
+    </div>
 
-    <label for="type">Claim Type</label>
-    <select name="type" [ngModel]="type">
-        <option value="1">Lost Baggage</option>
-        <option value="2">Theft</option>
-        <option value="3">Missed Flight</option>
-        <option value="4">Illness</option>
-        <option value="5">Accident</option>
-    </select>
+    <div class="form-group">
+        <label for="policyId">Policy ID</label>
+        <input class="form-control" name="policyId" type="text" [ngModel]="policyId">
+    </div>
 
-    <label for="amount">Amount</label>
-    <input name="amount" type="text" [ngModel]="amount">
+    <div class="form-group">
+        <label for="type">Claim Type</label>
+        <select class="form-control" name="type" [ngModel]="type">
+            <option value="1">Lost Baggage</option>
+            <option value="2">Theft</option>
+            <option value="3">Missed Flight</option>
+            <option value="4">Illness</option>
+            <option value="5">Accident</option>
+        </select>
+    </div>
 
-    <label for="dateOccurred">Date Occurred</label>
-    <input name="dateOccurred" type="date" [ngModel]="dateOccurred">
+    <div class="form-group">
+        <label for="amount">Amount</label>
+        <input class="form-control" name="amount" type="text" [ngModel]="amount">
+    </div>
 
-    <button type="submit">Submit</button>
+    <div class="form-group">
+        <label for="dateOccurred">Date Occurred</label>
+        <input class="form-control" name="dateOccurred" type="date" [ngModel]="dateOccurred">
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-info float-right">Submit</button>
+    </div>
 
 </form>

@@ -3,5 +3,9 @@
 }
 
 .manager__list {
-    
+    flex: 1;
+}
+
+.manager__list-title {
+    font-weight: bold;
 }
