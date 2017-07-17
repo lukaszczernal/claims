@@ -1,20 +1,24 @@
-<nav>
-    <a [routerLink]=" ['./form'] "
-        routerLinkActive="active"
-        [routerLinkActiveOptions]= "{exact: true}">
-        Claim Form
-    </a>
-    <a [routerLink]=" ['./manager'] "
-        routerLinkActive="active"
-        [routerLinkActiveOptions]= "{exact: true}">
-        Claims Manager
-    </a>
-</nav>
+<h4>Insurance Claims Dashboard</h4>
+
+<ul class="nav nav-pills app__nav">
+    <li class="nav-item">
+        <a class="nav-link"
+            [routerLink]="['./form']"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]= "{exact: true}">
+            Claim Form
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link"
+            [routerLink]=" ['./manager'] "
+            routerLinkActive="active"
+            [routerLinkActiveOptions]= "{exact: true}">
+            Claims Manager
+        </a>
+    </li>
+</ul>
 
 <main>
     <router-outlet></router-outlet>
 </main>
-
-<footer>
-    <h4>Insurance Claims Dashboard</h4>
-</footer>

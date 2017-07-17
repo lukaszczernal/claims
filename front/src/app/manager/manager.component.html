@@ -1,0 +1,51 @@
+<div class="manager">
+
+    <div class="manager__list">
+
+        <span class="manager__list-title">New</span>
+
+        <div class="card"  *ngFor="let claim of claimsNew | async">
+            <div class="card-block">
+                <h4 class="card-title">{{ claim.name }}</h4>
+                <h6 class="card-subtitle mb-2 text-muted">{{ claim.dateOccurred }}</h6>
+                <p class="card-text">Type: {{ claim.type }} | Amount: {{ claim.amount }}</p>
+                <a href="#" class="card-link" (click)="approve(claim)">Approve</a>
+                <a href="#" class="card-link" (click)="reject(claim)">Reject</a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="manager__list">
+
+        <span class="manager__list-title">Approved</span>
+
+        <div class="card"  *ngFor="let claim of claimsApproved | async">
+            <div class="card-block">
+                <h4 class="card-title">{{ claim.name }}</h4>
+                <h6 class="card-subtitle mb-2 text-muted">{{ claim.dateOccurred }}</h6>
+                <p class="card-text">Type: {{ claim.type }} | Amount: {{ claim.amount }}</p>
+                <a href="#" class="card-link" (click)="setNew(claim)">New</a>
+                <a href="#" class="card-link" (click)="reject(claim)">Reject</a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="manager__list">
+
+        <span class="manager__list-title">Rejected</span>
+
+        <div class="card"  *ngFor="let claim of claimsRejected | async">
+            <div class="card-block">
+                <h4 class="card-title">{{ claim.name }}</h4>
+                <h6 class="card-subtitle mb-2 text-muted">{{ claim.dateOccurred }}</h6>
+                <p class="card-text">Type: {{ claim.type }} | Amount: {{ claim.amount }}</p>
+                <a href="#" class="card-link" (click)="setNew(claim)">New</a>
+                <a href="#" class="card-link" (click)="approve(claim)">Approve</a>
+            </div>
+        </div>
+
+    </div>
+
+</div>

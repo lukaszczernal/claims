@@ -11,6 +11,7 @@ const webpackMerge = require('webpack-merge');
  * The settings that are common to prod and dev
 */
 const commonConfig = require('./webpack.common.js');
+const environmentConfig = require('./env.prod.json');
 
 /**
  * Webpack Plugins
@@ -37,6 +38,7 @@ const METADATA = webpackMerge(commonConfig({
   host: HOST,
   port: PORT,
   ENV: ENV,
+  ENV_CONFIG: environmentConfig,
   HMR: false
 });
 
@@ -65,7 +67,7 @@ module.exports = function (env) {
        *
        * See: http://webpack.github.io/docs/configuration.html#output-path
        */
-      path: helpers.root('dist'),
+      path: helpers.root('../public'),
 
       /**
        * Specifies the name of each output file on disk.
@@ -162,6 +164,7 @@ module.exports = function (env) {
       // NOTE: when adding more properties make sure you include them in custom-typings.d.ts
       new DefinePlugin({
         'ENV': JSON.stringify(METADATA.ENV),
+        'ENV_CONFIG': JSON.stringify(METADATA.ENV_CONFIG),
         'HMR': METADATA.HMR,
         'process.env': {
           'ENV': JSON.stringify(METADATA.ENV),

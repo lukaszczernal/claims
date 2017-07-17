@@ -15,10 +15,27 @@ export class ClaimService {
         this.config = this.injector.get(CONFIG)
     }
 
-    add(claim): Observable<any> {
-        console.log('this.config;', this.config);
+    add(claim: Claim): Observable<any> {
         return this.http.post(`${this.config.apihost}/claim`, claim)
     }
 
+    update(claim: Claim): Observable<any> {
+        return this.http.put(`${this.config.apihost}/claim`, claim)
+    }
 
+    getList(): Observable<Claim[]> {
+        return this.http.get(`${this.config.apihost}/claim`)
+            .map(res => res && res.json && res.json());
+    }
+
+}
+
+export interface Claim {
+    id: string;
+    name: string;
+    email: string;
+    policyId: number;
+    amount: number;
+    dateOccurred: number;
+    status: number;
 }

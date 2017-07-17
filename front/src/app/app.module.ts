@@ -22,6 +22,12 @@ import { AppState, InternalStateType } from './app.service';
 import { NoContentComponent } from './no-content';
 import { ClaimService } from "./shared/claim.service";
 import { CONFIG } from "./shared/config";
+import { UserService } from "./shared/user.service";
+import { ManagerComponent } from "./manager/manager.component";
+import { UserAuthenticatedGuard } from "./user-authenticated.guard";
+import { LoginComponent } from "./login/login.component";
+import { CookieModule } from 'ngx-cookie';
+import { CommonModule } from "@angular/common";
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -37,6 +43,8 @@ const APP_PROVIDERS = [
   declarations: [
     AppComponent,
     HomeComponent,
+    LoginComponent,
+    ManagerComponent,
     NoContentComponent
   ],
   /**
@@ -44,6 +52,8 @@ const APP_PROVIDERS = [
    */
   imports: [
     BrowserModule,
+    CommonModule,
+    CookieModule.forRoot(),
     FormsModule,
     HttpModule,
     RouterModule.forRoot(ROUTES, { useHash: true })
@@ -55,6 +65,8 @@ const APP_PROVIDERS = [
     ENV_PROVIDERS,
     APP_PROVIDERS,
     ClaimService,
+    UserService,
+    UserAuthenticatedGuard,
     {
       provide: CONFIG,
       useValue: ENV_CONFIG
