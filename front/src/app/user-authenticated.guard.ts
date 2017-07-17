@@ -11,7 +11,7 @@ export class UserAuthenticatedGuard implements CanActivate {
     ) {}
 
     canActivate(): Observable<boolean> {
-    return this.user.isAuthenticated()
+    return this.user.checkAuthenticated()
         .do(isAuth => {
             if (!isAuth) {
                 this.router.navigate(['login']);

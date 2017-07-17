@@ -28,6 +28,7 @@ import { UserAuthenticatedGuard } from "./user-authenticated.guard";
 import { LoginComponent } from "./login/login.component";
 import { CookieModule } from 'ngx-cookie';
 import { CommonModule } from "@angular/common";
+import { SignupComponent } from "./signup/signup.component";
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -44,6 +45,7 @@ const APP_PROVIDERS = [
     AppComponent,
     HomeComponent,
     LoginComponent,
+    SignupComponent,
     ManagerComponent,
     NoContentComponent
   ],
