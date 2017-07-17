@@ -14,7 +14,12 @@ export class UserService {
         private injector: Injector,
         private cookie: CookieService
     ) {
-        this.config = this.injector.get(CONFIG)
+        this.config = this.injector.get(CONFIG);
+    }
+
+    logout(): Observable<Response> {
+        return this.http.post(`${this.config.apihost}/users/logout`, {}, { withCredentials: true })
+            .do(() => this.cookie.remove('sid'));
     }
 
     login(userData): Observable<Response> {

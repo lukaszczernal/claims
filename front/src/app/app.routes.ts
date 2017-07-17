@@ -6,7 +6,7 @@ import { UserAuthenticatedGuard } from "./user-authenticated.guard";
 import { LoginComponent } from "./login/login.component";
 
 export const ROUTES: Routes = [
-  { path: '',      component: HomeComponent },
+  { path: '',      redirectTo: '/form', pathMatch: 'full' },
   { path: 'form',  component: HomeComponent },
   { path: 'login',  component: LoginComponent },
   {

@@ -1,13 +1,22 @@
-<h2>Login</h2>
+<div class="alert alert-info">
+    Your are trying to access restricted area. Please log in to proceed. <br/>
+    <i class="fa fa-exclamation"></i> Hint: username is <b>jetsons</b> and password is <b>astro</b>
+</div>
+
+<h3>Login</h3>
 
 <form #form="ngForm" (ngSubmit)="onSubmit(form)">
 
-    <label for="username">Username</label>
-    <input name="username" type="text" [ngModel]="username">
+    <div class="form-group">
+        <label for="username">Username</label>
+        <input class="form-control" name="username" type="text" [ngModel]="username">
+    </div>
 
-    <label for="password">Password</label>
-    <input name="password" type="password" [ngModel]="password">
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input class="form-control" name="password" type="password" [ngModel]="password">
+    </div>
 
-    <button type="submit">Login</button>
+    <button type="submit" class="btn btn-info float-right">Login</button>
 
 </form>
